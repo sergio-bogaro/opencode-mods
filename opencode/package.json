@@ -1,0 +1,36 @@
+{
+  "name": "opencode-mods",
+  "version": "0.2.0",
+  "private": true,
+  "description": "files-changed, session-status e customize-opencode para o OpenCode",
+  "type": "module",
+  "exports": {
+    ".": "./server.ts",
+    "./tui": "./tui.tsx",
+    "./rpc": "./rpc.ts"
+  },
+  "dependencies": {
+    "@opentui/core": "0.8.0",
+    "@opentui/solid": "0.8.0",
+    "solid-js": "1.9.18"
+  },
+  "peerDependencies": {
+    "@opentui/core": ">=0.8.0",
+    "@opentui/solid": ">=0.8.0",
+    "solid-js": ">=1.9.0"
+  },
+  "devDependencies": {
+    "@opencode/client": "2.2.5",
+    "@opencode/plugin": "2.2.5",
+    "@types/node": "^24.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.7.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "test:coverage": "node --import tsx --test --experimental-test-coverage tests/*.test.ts",
+    "test:ui": "powershell -NoProfile -ExecutionPolicy Bypass -File tests/customize-smoke.ps1",
+    "check": "npm run typecheck && npm test"
+  }
+}
